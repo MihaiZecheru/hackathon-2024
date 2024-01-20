@@ -50,15 +50,4 @@ app.get("/logout", (req: any, res: any) => {
   res.redirect('/');
 });
 
-/**** Routes ****/
-import crypto from 'crypto';
-
-// Generate a random secure key
-const generateSecretKey = () => {
-  return crypto.randomBytes(32).toString('hex');
-};
-
-const secretKey = generateSecretKey();
-
-console.log('Generated Secret Key:', secretKey);
 app.listen(__PORT__, () => console.log(`\nServer running @ http://localhost:${__PORT__}`));
