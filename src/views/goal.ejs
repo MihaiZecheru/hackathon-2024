@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals</title>
+    <%- include("header-meta") %>
+    <!-- Your existing styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+           
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button {
+            flex: 1;
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+        }
+
+        
+
+        footer {
+            
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        /* Add some additional styling for the modal if needed */
+        .modal-content {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add styling for number input in the modal */
+        .modal-content input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Style the close button in the modal header */
+        
+    </style>
+
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img
+            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+            height="15"
+            alt="MDB Logo"
+            loading="lazy"
+            />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <!-- Navbar dropdown -->
+        <li class="nav-item dropdown">
+            <a
+              data-mdb-dropdown-init
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+  
+            <li class="nav-item">
+            <a class="nav-link" href="/goal">Goals</a>
+            </li>
+        </ul>
+        <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+
+        <!-- Notifications -->
+        <div class="dropdown">
+            <a
+            data-mdb-dropdown-init
+            class="text-reset me-3 dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            aria-expanded="false"
+            >
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            </a>
+            <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+            >
+            <li>
+                <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+            </ul>
+        </div>
+        <!-- Avatar -->
+        
+            <img
+                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                class="rounded-circle"
+                height="25"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+            />
+            </a>
+            <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuAvatar"
+            >
+            <li>
+                <a class="dropdown-item" href="#">My profile</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Settings</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Logout</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+        <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+<script src="src/modules/script.js" type="module" defer></script>
+    </header>
+
+    <section>
+        <h2>Set your Goals for 2024</h2>
+
+        <div class="buttons">
+            <!-- Button 1 with Bootstrap modal trigger -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"  >
+                Sleep
+            </button>
+            <!-- Button 2 with Bootstrap modal trigger -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
+                Water
+            </button>
+            <!-- Button 3 with Bootstrap modal trigger -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3"  >
+                Steps
+            </button>
+            <!-- Button 4 with Bootstrap modal trigger -->
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal4" 
+            
+            >
+                Calories
+            </button>
+        </div>
+        
+    </section>
+
+    <!-- Bootstrap Modals -->
+    <div class="modal top fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Sleep Goal</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="number" id="sleepInput" class="form-control" />
+                        <label class="form-label" for="sleepInput">Hours of Sleep Goal</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Modal 2 for Water -->
+<div class="modal top fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true"
+data-bs-backdrop="static" data-bs-keyboard="true">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">Water Goal</h5>
+            
+        </div>
+        <div class="modal-body">
+            <div class="form-outline" data-mdb-input-init>
+                <input type="number" id="waterInput" class="form-control" />
+                <label class="form-label" for="waterInput">Liters of Water Goal</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal 3 for Steps -->
+<div class="modal top fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true"
+data-bs-backdrop="static" data-bs-keyboard="true">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel3">Steps Goal</h5>
+            
+        </div>
+        <div class="modal-body">
+            <div class="form-outline" data-mdb-input-init>
+                <input type="number" id="stepsInput" class="form-control" />
+                <label class="form-label" for="stepsInput">Number of Steps Goal</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal 4 for Calories -->
+<div class="modal top fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true"
+data-bs-backdrop="static" data-bs-keyboard="true">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Calories Goal</h5>
+            
+        </div>
+        <div class="modal-body">
+            <div class="form-outline" data-mdb-input-init>
+                <input type="number" id="caloriesInput" class="form-control" />
+                <label class="form-label" for="caloriesInput">Calories Goal</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Goal</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://media.istockphoto.com/id/902228542/vector/glass-of-water-flat-design.jpg?s=612x612&w=0&k=20&c=ixHDUWheecNlC3B1TPUpoY-MQYmkCbndYqieVtaP0F0="
+            alt=""
+            style="width: 45px; height: 45px"
+            class="rounded-circle"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Water</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">(Current)/(Goal)</p>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://www.shutterstock.com/image-vector/red-apple-green-leaf-icon-600nw-1954231459.jpg"
+            class="rounded-circle"
+            alt=""
+            style="width: 45px; height: 45px"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Calories</p>
+            
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">(Current)/(Goal)</p>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi5sXZPyiaMJB9yKEWqVK7WdIhbxAKM5Gjlg&usqp=CAU"
+            class="rounded-circle"
+            alt=""
+            style="width: 45px; height: 45px"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Steps</p>
+            
+          </div>
+        </div>
+      </td>
+      <td>
+       <p class="fw-normal mb-1">(Current)/(Goal)</p>
+        
+     </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+    <!-- Add Bootstrap JS script link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .buttons > button {
+            margin-right: 1rem;
+        }
+    </style>
+</body>
+
+</html>
+

@@ -17,6 +17,7 @@
     "prod": "ts-node src/index.ts"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2"
   }

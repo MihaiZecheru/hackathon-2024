@@ -1,0 +1,98 @@
+<!-- Button trigger modal -->
+<button type="button" id="modalbtn" class="btn btn-primary" data-mdb-modal-init data-mdb-target="#exampleModal">
+Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+<div class="modal-dialog  ">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign in to LifeTracker</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Tabs navs -->
+        <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+            <a
+                data-mdb-tab-init
+                class="nav-link active"
+                id="login-tab"
+                href="#ex3-tabs-1"
+                role="tab"
+                aria-controls="ex3-tabs-1"
+                aria-selected="true"
+                >Login</a
+            >
+            </li>
+            <li class="nav-item" role="presentation">
+            <a
+                data-mdb-tab-init
+                class="nav-link"
+                id="register-tab"
+                href="#ex3-tabs-2"
+                role="tab"
+                aria-controls="ex3-tabs-2"
+                aria-selected="false"
+                >Register</a
+            >
+            </li>
+        </ul>
+        <!-- Tabs navs -->
+        
+        <!-- Tabs content -->
+        <div class="tab-content" id="ex2-content">
+            <div
+            class="tab-pane fade show active"
+            id="ex3-tabs-1"
+            role="tabpanel"
+            aria-labelledby="ex3-tab-1"
+            >
+            <div class="form-outline" data-mdb-input-init>
+                <input type="text" id="login-username-box" class="form-control" />
+                <label class="form-label" for="form12">Username</label>
+            </div>
+            <div class="form-outline" data-mdb-input-init style="margin-top: 1rem;">
+                <input type="password" id="login-password-box" class="form-control" />
+                <label class="form-label" for="form12">Password</label>
+            </div>
+            <button id="login-btn" class="btn btn-primary>" type="button" style="width: 100%; margin-top: 1rem; background-color: #3B71CA; color: white;">Login</button>
+            <br>
+            <br>
+            <span style="margin-top: 1rem!important; margin-left: 30%;">New to LifeTracker? <a style="color: #3B71CA;" id="register-redirect">Register</a></span>
+            </div>
+            <div
+            class="tab-pane fade"
+            id="ex3-tabs-2"
+            role="tabpanel"
+            aria-labelledby="ex3-tab-2"
+            >
+            <div class="form-outline" data-mdb-input-init>
+                <input type="text" id="register-username-box" class="form-control" />
+                <label class="form-label" for="form12">Username</label>
+            </div>
+            <div class="form-outline" data-mdb-input-init style="margin-top: 1rem;">
+                <input type="password" id="register-password-box" class="form-control" />
+                <label class="form-label" for="form12">Password</label>
+            </div>
+            <div class="form-outline" data-mdb-input-init style="margin-top: 1rem;">
+                <input type="password" id="register-password-confirm-box" class="form-control" />
+                <label class="form-label" for="form12">Confirm Password</label>
+            </div>
+            <button id="register-btn" class="btn btn-primary>" type="button" style="width: 100%; margin-top: 1rem; background-color: #3B71CA; color: white;">Register</button>
+            <br>
+            <br>
+            <span style="margin-top: 1rem!important; margin-left: 28%;">Already have an account? <a style="color: #3B71CA;" id="login-redirect">Login</a></span>
+            </div>
+        </div>
+        <!-- Tabs content -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+        Close
+        </button>
+    </div>
+    </div>
+</div>
+</div>

@@ -10,44 +10,65 @@ const secret_key = "73c45ecdd6174653014f523d770d87be63673bece4e33452c77dcbf1bbed
 const __PORT__: number = 3000;
 const app = express();
 
-app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '\\views');
 // app.use(favicon(__dirname + '/static/icon.ico'));
 app.use(session({ secret: secret_key, resave: true, saveUninitialized: true }));
 
+app.use(express.json());
+
 app.use('/mdbootstrap/*', (req: any, res: any) => {
   return res.sendFile(path.resolve(__dirname + "/../" + req.originalUrl));
 });
 
-/**** Home ****/
+app.use('/src/modules/script.js', (req: any, res: any) => {
+  return res.sendFile(path.resolve("src/modules/script.js"));
+});
 
+/**** Home ****/
+//if (!logged_in(req)) ... // TODO: USE TO REDIRECT
 app.get("/", (req: any, res: any) => {
-  // if (!logged_in(req)) return res.redirect('/login');
-  res.render('home');
+  return res.render('home');
 });
 
 /**** User Login Routes ****/
 
-app.get("/login", (req: any, res: any) => {
-  res.render('login');
-});
-
 app.post("/login", (req: any, res: any) => {
-  // Perform your authentication logic here
+  const username = req.body.username;
+  const password = req.body.password;
   
-  login(req);
-  res.redirect('/');
+  // Get all users
+  fetch(`https://lifetracker-mads-default-rtdb.firebaseio.com/users.json`)
+    .then((res: any) => res.json())
+    .then((data: any) => {
+      data = Object.values(data);
+
+      // Check if user exists
+      let user_exists = false;
+      data.forEach((user: any) => {
+        if (user.username === username && user.password === password) {
+          login(req);
+          user_exists = true;
+        }
+      });
+
+      if (user_exists) return res.status(200).send('Login successful');
+      return res.status(200).send('Invalid username or password');
+    });
 });
 
 app.get("/register", (req: any, res: any) => {
-  res.render('register');
+  return res.render('register');
 });
 
 app.get("/logout", (req: any, res: any) => {
   // Perform logout logic here
   logout(req);
-  res.redirect('/');
+  return res.redirect('/');
+});
+
+app.get("/goal", (req: any, res: any) => {
+  return res.render('goal');
 });
 
 app.listen(__PORT__, () => console.log(`\nServer running @ http://localhost:${__PORT__}`));
