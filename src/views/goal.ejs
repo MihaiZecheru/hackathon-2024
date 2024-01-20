@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goals</title>
     <%- include("header-meta") %>
     <!-- Your existing styles -->
     <style>
@@ -17,7 +13,7 @@
         }
 
         header {
-            background-color: #007bff;
+           
            
             padding: 1em;
             text-align: center;
@@ -87,164 +83,28 @@
 </head>
 
 <body>
-    <header>
-        <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Toggle button -->
-        <button
-        data-mdb-collapse-init
-        class="navbar-toggler"
-        type="button"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <i class="fas fa-bars"></i>
-        </button>
+    <%- include("header-navbar") %>
 
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="15"
-            alt="MDB Logo"
-            loading="lazy"
-            />
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <!-- Navbar dropdown -->
-        <li class="nav-item dropdown">
-            <a
-              data-mdb-dropdown-init
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="#">Action</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
-          </li>
-  
-            <li class="nav-item">
-            <a class="nav-link" href="/goal">Goals</a>
-            </li>
-        </ul>
-        <!-- Left links -->
-        </div>
-        <!-- Collapsible wrapper -->
-
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-        <!-- Icon -->
-        <a class="text-reset me-3" href="#">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-
-        <!-- Notifications -->
-        <div class="dropdown">
-            <a
-            data-mdb-dropdown-init
-            class="text-reset me-3 dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            aria-expanded="false"
-            >
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-            </a>
-            <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink"
-            >
-            <li>
-                <a class="dropdown-item" href="#">Some news</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">Another news</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-            </ul>
-        </div>
-        <!-- Avatar -->
-        
-            <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                class="rounded-circle"
-                height="25"
-                alt="Black and White Portrait of a Man"
-                loading="lazy"
-            />
-            </a>
-            <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuAvatar"
-            >
-            <li>
-                <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">Logout</a>
-            </li>
-            </ul>
-        </div>
-        </div>
-        <!-- Right elements -->
-    </div>
-    <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
-<script src="src/modules/script.js" type="module" defer></script>
-    </header>
+    <%- include("signin-modal") %>
 
     <section>
-        <h2>Set your Goals for 2024</h2>
+        <h2>Set Your Goals For 2024</h2>
 
         <div class="buttons">
             <!-- Button 1 with Bootstrap modal trigger -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"  >
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sleep-modal" id="sleep-btn" >
                 Sleep
             </button>
             <!-- Button 2 with Bootstrap modal trigger -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#water-modal" id="water-btn" >
                 Water
             </button>
             <!-- Button 3 with Bootstrap modal trigger -->
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3"  >
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#steps-modal" id="steps-btn" >
                 Steps
             </button>
             <!-- Button 4 with Bootstrap modal trigger -->
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal4" 
-            
-            >
+            <button type="button" class="btn btn-warning" style="color: white" data-bs-toggle="modal" data-bs-target="#calories-modal"  id="calories-btn">
                 Calories
             </button>
         </div>
@@ -252,7 +112,7 @@
     </section>
 
     <!-- Bootstrap Modals -->
-    <div class="modal top fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true"
+    <div class="modal top fade" id="sleep-modal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -263,19 +123,19 @@
                 <div class="modal-body">
                     <div class="form-outline" data-mdb-input-init>
                         <input type="number" id="sleepInput" class="form-control" />
-                        <label class="form-label" for="sleepInput">Hours of Sleep Goal</label>
+                        <label class="form-label" for="sleepInput">Hours of Sleep</label>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="sleep-btn">Update Goal</button>
                 </div>
             </div>
         </div>
     </div>
 
    <!-- Modal 2 for Water -->
-<div class="modal top fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true"
+<div class="modal top fade" id="water-modal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true"
 data-bs-backdrop="static" data-bs-keyboard="true">
 <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -286,19 +146,19 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         <div class="modal-body">
             <div class="form-outline" data-mdb-input-init>
                 <input type="number" id="waterInput" class="form-control" />
-                <label class="form-label" for="waterInput">Liters of Water Goal</label>
+                <label class="form-label" for="waterInput">Mililiters of Water</label>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="water-btn">Update Goal</button>
         </div>
     </div>
 </div>
 </div>
 
 <!-- Modal 3 for Steps -->
-<div class="modal top fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true"
+<div class="modal top fade" id="steps-modal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true"
 data-bs-backdrop="static" data-bs-keyboard="true">
 <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -309,19 +169,19 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         <div class="modal-body">
             <div class="form-outline" data-mdb-input-init>
                 <input type="number" id="stepsInput" class="form-control" />
-                <label class="form-label" for="stepsInput">Number of Steps Goal</label>
+                <label class="form-label" for="stepsInput">Number of Steps</label>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="steps-btn">Update Goal</button>
         </div>
     </div>
 </div>
 </div>
 
 <!-- Modal 4 for Calories -->
-<div class="modal top fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true"
+<div class="modal top fade" id="calories-modal" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true"
 data-bs-backdrop="static" data-bs-keyboard="true">
 <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -337,18 +197,12 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="calories-btn">Update Goal</button>
         </div>
     </div>
 </div>
 </div>
 <table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light">
-    <tr>
-      <th>Goal</th>
-      <th>Title</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
       <td>
@@ -365,7 +219,7 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">(Current)/(Goal)</p>
+        <p class="fw-normal mb-1"><h5 id="water-display"><%= water %></h5></p>
         
       </td>
     </tr>
@@ -385,7 +239,7 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">(Current)/(Goal)</p>
+        <p class="fw-normal mb-1"><h5><%= calories %></h5></p>
         
       </td>
     </tr>
@@ -405,10 +259,30 @@ data-bs-backdrop="static" data-bs-keyboard="true">
         </div>
       </td>
       <td>
-       <p class="fw-normal mb-1">(Current)/(Goal)</p>
+       <p class="fw-normal mb-1"><h5><%= steps %></h5></p>
         
      </td>
     </tr>
+    <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+              src="https://media.istockphoto.com/id/1162443281/vector/sleeping-person-flat-vector-icon.jpg?s=612x612&w=0&k=20&c=12BcDMIcet6AyZK11vFlg67EDEQJfxVIMIUA5UjNnvk="
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+            />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">Sleep</p>
+              
+            </div>
+          </div>
+        </td>
+        <td>
+         <p class="fw-normal mb-1"><h5><%= sleep %></h5></p>
+          
+       </td>
+      </tr>
   </tbody>
 </table>
 
@@ -427,4 +301,3 @@ data-bs-backdrop="static" data-bs-keyboard="true">
 </body>
 
 </html>
-

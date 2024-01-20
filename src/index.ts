@@ -6,6 +6,11 @@ import ejs from "ejs";
 
 import { logged_in, login, logout } from "./modules/session";
 
+const user = {
+  username: "admin",
+  password: "admin"
+}
+
 const secret_key = "73c45ecdd6174653014f523d770d87be63673bece4e33452c77dcbf1bbedbdde";
 const __PORT__: number = 3000;
 const app = express();
@@ -26,7 +31,7 @@ app.use('/src/modules/script.js', (req: any, res: any) => {
 });
 
 /**** Home ****/
-//if (!logged_in(req)) ... // TODO: USE TO REDIRECT
+
 app.get("/", (req: any, res: any) => {
   return res.render('home');
 });
@@ -57,18 +62,20 @@ app.post("/login", (req: any, res: any) => {
     });
 });
 
-app.get("/register", (req: any, res: any) => {
-  return res.render('register');
-});
-
 app.get("/logout", (req: any, res: any) => {
-  // Perform logout logic here
   logout(req);
   return res.redirect('/');
 });
 
-app.get("/goal", (req: any, res: any) => {
-  return res.render('goal');
+app.get("/goal", async (req: any, res: any) => {
+  const goals = await fetch(`https://lifetracker-mads-default-rtdb.firebaseio.com/goals.json`, {
+    method: 'GET'
+  }).then((res: any) => res.json())
+  return res.render('goal', { sleep: goals.sleep, water: goals.water, steps: goals.steps, calories: goals.calories });
+});
+
+app.get("/food-picker", (req: any, res: any) => {
+  res.render("calorie-inputer");
 });
 
 app.listen(__PORT__, () => console.log(`\nServer running @ http://localhost:${__PORT__}`));

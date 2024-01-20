@@ -17,19 +17,10 @@
 
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="15"
-            alt="MDB Logo"
-            loading="lazy"
-            />
-        </a>
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="/">Home</a>
             </li>
             <!-- Navbar dropdown -->
         <li class="nav-item dropdown">
@@ -41,19 +32,21 @@
               role="button"
               aria-expanded="false"
             >
-              Dropdown
+              View
             </a>
             <!-- Dropdown menu -->
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="/view/sleep">Sleep</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="/view/water">Water</a>
               </li>
-              <li><hr class="dropdown-divider" /></li>
               <li>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="/view/food">Food</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/view/excersize">Excersize</a>
               </li>
             </ul>
           </li>
@@ -68,10 +61,6 @@
 
         <!-- Right elements -->
         <div class="d-flex align-items-center">
-        <!-- Icon -->
-        <a class="text-reset me-3" href="#">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
 
         <!-- Notifications -->
         <div class="dropdown">
@@ -103,14 +92,8 @@
         </div>
         <!-- Avatar -->
         
-            <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                class="rounded-circle"
-                height="25"
-                alt="Black and White Portrait of a Man"
-                loading="lazy"
-            />
-            </a>
+        <div class="dropdown">
+            <button id="modalbtn" class="btn btn-primary" type="button" data-mdb-toggle="modal" data-mdb-target="#signin-modal" id="">Login</button>
             <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar"
