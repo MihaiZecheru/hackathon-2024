@@ -23,8 +23,8 @@ app.use('/mdbootstrap/*', (req: any, res: any) => {
 /**** Home ****/
 
 app.get("/", (req: any, res: any) => {
-  if (!logged_in(req)) return res.redirect('/login');
-  res.render('home', { name: 'mihai christian zecheru' });
+  // if (!logged_in(req)) return res.redirect('/login');
+  res.render('home');
 });
 
 /**** User Login Routes ****/
