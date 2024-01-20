@@ -15,5 +15,9 @@
     "test": "jest",
     "dev": "nodemon src/index.ts",
     "prod": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
   }
 }
